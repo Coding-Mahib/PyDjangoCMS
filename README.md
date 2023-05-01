@@ -19,3 +19,27 @@ You can make migrations by executing ```python manage.py makemigrations``` and m
 After setup, you can run server by executing ```python manage.py runserver```
 
 ## Blog Home-Page
+<img src="prev/1.PNG"/>
+<img src="prev/2.PNG"/>
+
+## Contact Us
+Under Constructing
+
+## Usage
+
+You can view admin dashboard by going to url ```http://<your_url>/admin/```
+
+Default Username: ```blogadmin``` && password: ```admin```
+
+You can add profile after creating a new user.
+
+You can create blog posts and content field supports html
+
+You can copy html from richtexteditor by going to ```http://<your_url>/richtexteditor/```
+
+You can upload media and get media url by following certain steps:
+
+<li>First goto ```http://<your_url>/admin/app/media/``` and click on your media.</li>
+<li> After that, find a text like ```media/*``` under ```Change media``` section and copy the text.</li>
+<li>Thirdly, goto ```http://<your_url>/media/url/``` and paste the copied text and click the button</li>
+<li>You can get link ```click here``` and copy the link.This is the lin for your media.</li>
