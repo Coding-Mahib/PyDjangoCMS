@@ -7,11 +7,12 @@ from . import models
 # Create your views here.
 def Home(req):
     Post = models.Post.objects.filter(published=True).order_by("-publish_date")
+    desc = SITE.Description
 
     posts = 0
     for p in Post:
         posts += 1
-    return render(req, 'index.html', {'SITE': SITE, 'posts': Post, 'count': posts, 'title': 'Home'})
+    return render(req, 'index.html', {'SITE': SITE, 'posts': Post, 'count': posts, 'title': 'Home', 'desc': desc})
 
 
 def About(req):
@@ -45,6 +46,7 @@ def Media(req):
             f.close()
 
 def SearchPosts(req):
+    desc = SITE.Description
     if req.GET['q']:
         q = req.GET['q']
     else:
@@ -53,7 +55,7 @@ def SearchPosts(req):
     posts = 0
     for p in Post:
         posts += 1
-    return render(req, 'index.html', {'SITE': SITE, 'posts': Post, 'field_text': q, 'count': posts})
+    return render(req, 'index.html', {'SITE': SITE, 'posts': Post, 'field_text': q, 'count': posts, 'desc': desc})
 
 def DetailsPosts(req, slug):
     Post = models.Post.objects.filter(slug=slug)
@@ -62,11 +64,13 @@ def DetailsPosts(req, slug):
         posts += 1
     if posts == 1:
         Post = Post[0]
+        desc = Post.meta_description
         title = Post.title
     else:
         Post = []
+        desc = SITE.Description
         title = 'Not Found'
-    return render(req, 'details.html', {'SITE': SITE, 'title': title, 'posts': posts, 'post': Post})
+    return render(req, 'details.html', {'SITE': SITE, 'title': title, 'posts': posts, 'post': Post, 'desc': desc})
 
 def richTextField(req):
     return render(req, 'richtext.html', {'SITE': SITE, 'title': 'Rich Text Editor'})
