@@ -43,3 +43,6 @@ You can upload media and get media url by following certain steps:
 <li> After that, find a text like ```media/*``` under ```Change media``` section and copy the text.</li>
 <li>Thirdly, goto ```http://<your_url>/media/url/``` and paste the copied text and click the button</li>
 <li>You can get link ```click here``` and copy the link.This is the lin for your media.</li>
+
+## Issue
+If you face any issue please create a issue on github. Soonly, a video available for guide.
