@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .card{
+        border-radius: 40px;
+    }
+    .card h2, .card .text-muted{
+        margin: 8px;
+    }
+    img{
+        max-height: 500px;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 40px;
+    }
+    .right{
+        float: right;
+    }
+    a{
+        text-decoration: none;
+        color: #333;
+        cursor: pointer;
+    }
+</style>
+
+<input type="hidden" name="" value="{{ count }}" id="c">
+
+<br />
+<br />
+<div class="main container">
+    {% for post in posts %}
+    <a class="row align-items-center" href="{% url 'details' post.slug %}">
+        <div class="col align-self-center">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <img src="{% url 'files' %}?file={{ post.thumbnail }}" alt="{{ post.title }}" />
+                    <br>
+                    <br>
+                    <h2 class="text">{{ post.title }}</h2>
+                    <small class="text text-muted">Created at {{ post.date_created }} <span class="right">Author: {{ post.author }}</span></small>
+                </div>
+            </div>
+        </div>
+    </a>
+    <br />
+    {% endfor %}
+    <div id="pl"></div>
+</div>
+<script>
+    let posts = Number(document.querySelector('#c').value);
+    const pl = document.querySelector('#pl');
+    if (posts == 0){
+        html = '<div class="row align-items-center">';
+        html += '<div class="col align-self-center">';
+        html += '<p class="text text-center text-muted text-danger">No Posts Found</p>'
+        html += '</div></div>';
+        pl.innerHTML = html;
+    }
+</script>
+
+{% endblock content %}
