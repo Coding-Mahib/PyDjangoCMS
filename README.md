@@ -25,6 +25,18 @@ After setup, you can run server by executing ```python manage.py runserver```
 ## Contact Us
 Under Constructing
 
+## Features
+<li>Add, Edit and delete posts</li>
+<li>Easy to create users, edit users or delete users</li>
+<li>Add, edit and delete media</li>
+<li>Easy to add tags</li>
+<li>Meta Descriptions for posts</li>
+<li>If title is "Hello World", post url will be 'http://<your_url>/post/details/hello-world' For SEO</li>
+<li>Fully responsive</li>
+<li>Rich Text Editor for post content(You can copy html there)</li>
+
+
+
 ## Usage
 
 You can view admin dashboard by going to url ```http://<your_url>/admin/```
